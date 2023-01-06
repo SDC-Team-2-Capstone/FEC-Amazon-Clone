@@ -15,6 +15,8 @@ const port = process.env.PORT || 8080;
 const connectionString = config.connectionString;
 const pool = new Pool({ connectionString: connectionString });
 
+pool.connect();
+
 /* ==================== Middleware ==================== */
 
 app.use(cors());
@@ -23,8 +25,8 @@ app.use(express.json());
 /* ==================== Routes ==================== */
 
 /* ========== General ========== */
-app.get("/test", (req, res) => {
-  res.send("hello");
+app.get("/", (req, res) => {
+  res.send("hello world");
 });
 
 // Get full tables

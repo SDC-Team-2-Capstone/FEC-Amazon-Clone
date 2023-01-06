@@ -2,13 +2,15 @@ version: '3.8'
 services:
 
   database: 
+    volumes:
+      - pgdatasource:/var/lib/postgresql/data
     image: postgres:latest
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
-      - POSTRGRES_DB=my_db
+      - POSTGRES_DB=my_db
 
   api:
     build: ./back-end
@@ -26,3 +28,6 @@ services:
       - "3001:3001"
     depends_on:
       - api
+
+volumes:
+  pgdatasource:
