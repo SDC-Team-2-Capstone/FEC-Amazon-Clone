@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "local": "ConnectionString='postgres://amazon_database_user:nYGWZMX6yX9VPlfHHRIkw2ACQL7qByss@dpg-ced088sgqg459grtpok0-a.oregon-postgres.render.com/amazon_database?ssl=true' PORT=8000 nodemon server.js",
-    "dev": "node server.js",
+    "dev": "nodemon server.js",
     "docker": "docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
     "pg": "^8.8.0"

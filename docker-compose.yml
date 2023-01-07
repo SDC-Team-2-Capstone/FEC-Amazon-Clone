@@ -4,6 +4,10 @@ services:
   database: 
     volumes:
       - pgdatasource:/var/lib/postgresql/data
+      # - ./back-end/SQLFiles/names.csv/:/docker-entrypoint-initdb.d/names.csv
+      # - ./back-end/SQLFiles/recs-migration.sql/:/docker-entrypoint-initdb.d/recs-migration.sql
+      # - ./back-end/SQLFiles/recs-seed.sql/:/docker-entrypoint-initdb.d/recs-seed.sql
+      # - ./back-end/SQLFiles/questions.sql/:/docker-entrypoint-initdb.d/questions.sql
     image: postgres:latest
     ports:
       - "5432:5432"
@@ -11,6 +15,14 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=my_db
+
+  # app:
+  #   build: .
+  #   command: node dataGenerator.js
+  #   depends_on:
+  #     - database
+    # environment:
+    #   DATABASE_URL: postgresql://postgres:pass@database/my_db
 
   api:
     build: ./back-end
@@ -31,3 +43,4 @@ services:
 
 volumes:
   pgdatasource:
+  postgres-data:
