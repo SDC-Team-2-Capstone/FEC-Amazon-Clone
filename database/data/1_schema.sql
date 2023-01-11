@@ -12,18 +12,18 @@ CREATE TABLE recommendations(
   is_best_seller boolean,
   is_limited_time_deal boolean,
   is_prime_delivery boolean,
-  limited_time_end date,
+  limited_time_end text,
   is_offers decimal,
   is_climate_friendly boolean
 );
 
 CREATE TABLE amazon_qa (
-  id SERIAL PRIMARY KEY,
-  question TEXT NOT NULL,
-  answer TEXT NOT NULL,
-  product_id INTEGER,
-  date_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  rating INTEGER CHECK (
+  id serial PRIMARY KEY,
+  question text NOT NULL,
+  answer text NOT NULL,
+  product_id int,
+  date_posted text,
+  rating int CHECK (
     rating >= 0
     AND rating <= 5
   )

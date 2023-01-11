@@ -62,6 +62,14 @@ COPY recommendations (
   limited_time_end,
   is_offers,
   is_climate_friendly)
-  FROM '/data/recommendations.csv' HEADER CSV; 
+  FROM '/data/recommendations.csv' CSV; 
+
+COPY amazon_qa (
+  question,
+  answer,
+  product_id,
+  date_posted,
+  rating)
+  FROM '/data/amazon_qa.csv' CSV;
 
 

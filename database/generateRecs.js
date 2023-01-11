@@ -8,7 +8,7 @@ function* generatePrice(numPrice) {
   }
 }
 
-const price = generatePrice(9000000);
+const price = generatePrice(3000000);
 
 // // ============== generate string for text data ======================== //
 function* generateRandomStrings(numStrings, minLength, maxLength) {
@@ -23,14 +23,17 @@ function* generateRandomStrings(numStrings, minLength, maxLength) {
   }
 }
 
-const randomString = generateRandomStrings(9000000, 5, 20);
+const randomString = generateRandomStrings(3000000, 5, 20);
 
 // ===================== create csv file and prep for writing =================
-const writer = csvWriter({ headers: ['product_img', 'product_name', 'product_seller', 'num_reviews', 'operating_system', 'price', 'is_best_seller', 'is_limited_time_deal', 'is_prime_delivery', 'limited_time_end', 'is_offers', 'is_climate_friendly']});
-writer.pipe(fs.createWriteStream('./data/recommendations.csv'));
+const writer = csvWriter({ sendHeaders: false});
+const writeStream = fs.createWriteStream('./data/recommendations.csv', { flags: 'a'})
+writer.pipe(writeStream);
 
 // =============== generate data using results from previous generators =========
-function* generateData(entries, randomString, price) {
+// const chunkSize = 100000;
+
+function* generateRecs(entries, randomString, price) {
   for (let i = 0; i < entries; i++){
     yield ({
       product_img: "imgs.jpg",
@@ -42,16 +45,23 @@ function* generateData(entries, randomString, price) {
       is_best_seller: false,  
       is_limited_time_deal: false,
       is_prime_delivery: true,
-      limited_time_end: "2022-12-25T00:00:00.000Z",
+      limited_time_end: new Date(),
       is_offers: price.next().value,
       is_climate_friendly: false
     });
   }
 }
 
+
+
 // ====== Call the generator function and write the generated data to the file ======
-for (const product of generateData(3000000, randomString, price)) {
+// let counter = 0;
+for (const product of generateRecs(1000000, randomString, price)) {
   writer.write(product);
+  // counter++;
+  // if(counter % chunkSize === 0)
+  // writeStream.write('', 'utf8', () => {})
+  // global.gc();
 }
 
 // ============ Close the writable stream ================
