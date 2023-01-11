@@ -29,6 +29,21 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+/* ============= sample data from generator =============== */
+app.get('/data', (req, res) => {
+  pool.query(`SELECT * FROM recommendations WHERE id < 100`)
+  .then((result) => {
+    res.send(result.rows);
+  })
+})
+
+app.get('/data/:price', (req, res) => {
+  pool.query(`SELECT * FROM recommendations WHERE price < ${req.params.price}`)
+  .then((result) => {
+    res.send(result.rows)
+  })
+})
+
 // Get full tables
 app.get("/Amazon/:table", (req, res) => {
   pool.query(`SELECT * FROM ${req.params.table}`).then((result) => {
