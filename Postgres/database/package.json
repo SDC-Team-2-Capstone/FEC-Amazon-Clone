@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "gendata": "node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js && node generateRecs.js & node generateQa.js"
+  },
+  "dependencies": {
+    "csv-write-stream": "^2.0.0",
+    "fs": "^0.0.1-security"
+  }
+}

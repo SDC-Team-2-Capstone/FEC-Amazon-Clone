@@ -1,0 +1,26 @@
+.Icon {
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  border: 1px solid #a2a6ac;
+}
+
+.Icon:hover {
+  border: 1px solid #e77600;
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.IconHovered {
+  width: 40px;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  border: 1px solid #a2a6ac;
+  border: 1px solid #e77600;
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}

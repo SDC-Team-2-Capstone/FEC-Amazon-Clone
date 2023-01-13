@@ -1,0 +1,123 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #0f1926;
+  top: 0;
+  z-index: 100;
+}
+.amazon-logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 18px;
+}
+.search-input-field-with-icon {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+}
+.header__searchInput {
+  height: 10px;
+  padding: 14px;
+  border: none;
+  width: 100%;
+  border-radius: 5px 0px 0px 5px !important;
+}
+.header__searchIcon {
+  padding: 4px;
+  height: 28px;
+  width: 32px;
+  background-color: #fcb250;
+  border-radius: 0px 5px 5px 0px;
+}
+.header__optionLineOne {
+  font-size: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+}
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+}
+.header__optionBasket {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.header__basketCount {
+  position: 'absolute';
+  margin-left: 23px;
+  margin-bottom: 14px;
+  color: #fcb250;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: transparent;
+}
+.header__option:hover {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+.home__container {
+  display: block;
+}
+
+.shoppingCart {
+  height: 26px;
+  width: 38px;
+  background-image: url('../footer-images/amazon-image-collection.png');
+  background-position: -10px -340px;
+
+  margin-left: -26px;
+}
+
+.countdown-gif {
+  position: relative;
+  height: 60px !important;
+  width: 350px !important;
+}
+.countdown {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-block {
+  background-color: white;
+  padding: 1px;
+  border-radius: 3px;
+  font-size: 22px;
+  color: black;
+}
+
+.colon {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.items-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 100%;
+}

@@ -1,0 +1,30 @@
+.previewCollumn {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 10px;
+  margin-inline: 10px;
+  width: 100%;
+}
+
+.icon-collumn {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.main-preview {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.main-preview-image {
+  width: 40vw;
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.rolloverText {
+  color: #7d7f83;
+  align-self: center;
+}

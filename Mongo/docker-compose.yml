@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+
+  mongo:
+    container_name: 'mongo'
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  mongo-seed:
+    build: ./database
+    container_name: 'seed'
+    depends_on:
+      - mongo
+
+  mongobackend:
+    container_name: 'mongoBackend'
+    build: ./back-end
+    ports:
+      - 8081:8081
+    environment:
+      - connectionString=mongodb://SDC-Team2:sdcpass@host:8081/my_db
+      - PORT=8081
+    depends_on:
+      - mongo
+
+
+  #Mongo Express Service
+  # mongo-express:
+  #   image: mongo-express:latest # latest image
+  #   container_name: mongo-express
+  #   # restart: on-failure
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     - ME_CONFIG_MONGODB_SERVER=mongo
+  #     - ME_CONFIG_MONGODB_ADMINUSERNAME=SDC-Team2
+  #     - ME_CONFIG_MONGODB_ADMINPASSWORD=sdcpass
+  #     - ME_CONFIG_MONGODB_SERVER= my_db  
+  #   links:
+  #     - mongodb:mongodb
+ 
+
+  # frontend:
+  #   build: ./client
+  #   ports:
+  #     - "3002:3002"
+  #   depends_on:
+  #     - mongo-express
+
+volumes:
+  pgdatasource:
+  mongodb_data:
